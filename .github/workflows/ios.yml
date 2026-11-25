@@ -32,6 +32,6 @@ jobs:
           xcodebuild test \
             -project TaskManager.xcodeproj \
             -scheme TaskManager \
-            -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=latest' \
+            -destination 'platform=iOS Simulator,name=iPhone 18 Pro,OS=27.0' \
             CODE_SIGNING_ALLOWED=NO
 
