@@ -20,20 +20,33 @@ final class TaskListUITests: XCTestCase {
     }
 
     func testAddTask() throws {
+
         // Arrange
-        let app  = XCUIApplication()
+        let app = XCUIApplication()
         app.launch()
 
-        // Act
-        app.buttons["addTaskButton"].tap()
+        // Act - Open Add Task
+        let addButton = app.buttons["addTaskButton"]
 
+        XCTAssertTrue(addButton.waitForExistence(timeout: 10))
+        addButton.tap()
+
+        // Enter Task Title
         let titleTextField = app.textFields["taskTitleTextField"]
+
+        XCTAssertTrue(titleTextField.waitForExistence(timeout: 10))
         titleTextField.tap()
         titleTextField.typeText("Learn UI Testing")
 
-        app.buttons["saveTaskButton"].tap()
+        // Save Task
+        let saveButton = app.buttons["saveTaskButton"]
+
+        XCTAssertTrue(saveButton.waitForExistence(timeout: 10))
+        saveButton.tap()
 
         // Assert
-        XCTAssertTrue(app.staticTexts["Learn UI Testing"].exists)
+        XCTAssertTrue(
+            app.staticTexts["Learn UI Testing"].waitForExistence(timeout: 10)
+        )
     }
 }
