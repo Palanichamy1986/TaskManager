@@ -11,7 +11,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: macos-15
+    runs-on: xcode-27
 
     steps:
       # Checkout source code
